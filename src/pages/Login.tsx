@@ -29,77 +29,88 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex">
-      {/* Left side - Background image */}
-      <div 
+      {/* Left side - Image */}
+      <div
         className="hidden md:flex md:w-2/3 bg-cover bg-center"
-        style={{ 
-          backgroundImage: "url('/lovable-uploads/70364dfd-076f-42c9-b8ad-66014d08f89d.png')",
+        style={{
+          backgroundImage: "url('/lovable-uploads/6498e998-bbb1-4bd1-822d-c8c87a2e1818.png')",
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}
+        aria-hidden="true"
       />
 
       {/* Right side - Login form */}
-      <div className="w-full md:w-1/3 flex flex-col justify-center p-8">
-        <div className="text-right mb-8">
+      <div className="w-full md:w-1/3 flex flex-col justify-center p-12 relative">
+        <div className="mb-8 flex justify-end">
           <img 
-            src="/lovable-uploads/1cb3eaaf-f19a-4907-8752-af1dd5e30702.png" 
+            src="/lovable-uploads/87e35c6d-b6b6-47e6-af29-42001cacc2ef.png" 
             alt="Maser Engineering" 
-            className="inline-block h-16"
+            className="inline-block h-20"
           />
         </div>
 
         <div className="mb-10">
-          <h2 className="text-2xl font-medium">Bienvenue,</h2>
+          <h2 className="text-xl font-normal">Bienvenue,</h2>
         </div>
 
         {error && (
-          <div className="p-3 mb-4 bg-red-100 text-red-700 rounded">
+          <div className="p-2 mb-4 text-xs text-red-600 bg-red-100 rounded">
             {error}
           </div>
         )}
 
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
             <input
               type="email"
               placeholder="Identifiant"
-              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-espiblue"
+              className="w-full px-3 py-2 border border-gray-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-espiblue"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              autoComplete="username"
             />
           </div>
           
-          <div className="mb-6">
+          <div>
             <input
               type="password"
               placeholder="Mot de passe"
-              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-espiblue"
+              className="w-full px-3 py-2 border border-gray-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-espiblue"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              autoComplete="current-password"
             />
           </div>
 
-          <div className="mb-6">
+          <div>
             <button
               type="submit"
-              className="w-full bg-espiblue hover:bg-blue-700 text-white font-medium py-2 px-4 rounded"
+              className="w-full bg-espiblue hover:bg-blue-700 text-white font-medium text-sm py-2 rounded"
             >
               Se connecter
             </button>
           </div>
         </form>
         
-        <div className="border-t border-gray-300 my-6 pt-6">
+        <hr className="my-6 border-gray-300" />
+
+        <div>
           <button
-            className="w-full bg-espiblue hover:bg-blue-700 text-white font-medium py-2 px-4 rounded"
+            className="w-full bg-espiblue hover:bg-blue-700 text-white font-medium text-sm py-2 rounded"
             onClick={() => navigate('/register')}
           >
             Créer compte
           </button>
         </div>
+
+        <img 
+          src="/lovable-uploads/4bf0a7de-6995-4f54-b685-a2981b9b3470.png" 
+          alt="ME Logo Bottom Right" 
+          className="absolute bottom-4 right-4 h-12"
+        />
       </div>
     </div>
   );
