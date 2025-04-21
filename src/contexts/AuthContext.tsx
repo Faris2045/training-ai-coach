@@ -40,9 +40,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const login = async (email: string, password: string): Promise<boolean> => {
     try {
       // In a real application, this would call a backend API
-      // For now, we'll simulate a successful login
-      
-      // Sample users for demo
+      // Add a fixed "coordinateur" user for demo/simulation
       const sampleUsers: User[] = [
         { 
           id: '1', 
@@ -59,7 +57,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         { 
           id: '3', 
           email: 'coordinateur@espi.fr', 
-          password: 'coordinateur123', 
+          password: 'coordinatorpwd', 
           role: 'coordinateur' 
         },
         { 
@@ -67,13 +65,20 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
           email: 'apprenant@espi.fr', 
           password: 'apprenant123', 
           role: 'apprenant' 
+        },
+        // Fixed user for your demo:
+        { 
+          id: '42',
+          email: 'coordinator@espi.fr',
+          password: 'coordinatorpwd',
+          role: 'coordinateur'
         }
       ];
-      
+
       const matchedUser = sampleUsers.find(
         u => u.email === email && u.password === password
       );
-      
+
       if (matchedUser) {
         // Remove password before storing
         const { password, ...userWithoutPassword } = matchedUser;
@@ -81,7 +86,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         localStorage.setItem('espi_user', JSON.stringify(userWithoutPassword));
         return true;
       }
-      
+
       return false;
     } catch (error) {
       console.error('Login error:', error);
