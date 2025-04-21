@@ -13,7 +13,6 @@ const Login = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
-    
     try {
       const success = await login(email, password);
       if (success) {
@@ -29,19 +28,18 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex">
-      {/* Left side - Image */}
+      {/* Left side - Eolien image */}
       <div
-        className="hidden md:flex md:w-2/3 bg-cover bg-center"
+        className="hidden md:block md:w-1/2 h-full"
         style={{
-          backgroundImage: "url('/lovable-uploads/6498e998-bbb1-4bd1-822d-c8c87a2e1818.png')",
+          backgroundImage: "url('/lovable-uploads/eolien.png')",
           backgroundSize: 'cover',
-          backgroundPosition: 'center'
+          backgroundPosition: 'center',
         }}
         aria-hidden="true"
       />
-
       {/* Right side - Login form */}
-      <div className="w-full md:w-1/3 flex flex-col justify-center p-12 relative">
+      <div className="w-full md:w-1/2 flex flex-col justify-center p-12 relative bg-white">
         <div className="mb-8 flex justify-end">
           <img 
             src="/lovable-uploads/87e35c6d-b6b6-47e6-af29-42001cacc2ef.png" 
