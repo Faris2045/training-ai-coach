@@ -61,7 +61,14 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// ESPI+ specific colors
+				espiblue: '#0074E8',
+				espired: '#E21A3B',
+				espigreen: '#00C853',
+				espiwarning: '#FFB300',
+				alternaterow: '#D6EAFF',
+				tableheader: '#F5F5F5'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

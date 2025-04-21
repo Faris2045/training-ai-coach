@@ -13,8 +13,9 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* ESPI+ blue color as primary */
+    --primary: 210 100% 45.5%;
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -35,19 +36,12 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -98,4 +92,81 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* ESPI+ Custom Styles */
+@layer components {
+  .espi-header {
+    @apply bg-espiblue text-white p-4 flex items-center;
+  }
+
+  .espi-logo {
+    @apply text-white font-bold text-2xl;
+  }
+
+  .espi-button-primary {
+    @apply bg-espiblue hover:bg-blue-700 text-white font-medium py-2 px-4 rounded flex items-center gap-2;
+  }
+
+  .espi-button-success {
+    @apply bg-espigreen hover:bg-green-600 text-white font-medium py-2 px-4 rounded flex items-center gap-2;
+  }
+
+  .espi-button-danger {
+    @apply bg-espired hover:bg-red-600 text-white font-medium py-2 px-4 rounded flex items-center gap-2;
+  }
+
+  .espi-table {
+    @apply w-full border-collapse;
+  }
+
+  .espi-table th {
+    @apply bg-tableheader p-2 text-left border border-gray-300;
+  }
+
+  .espi-table td {
+    @apply p-2 border border-gray-300;
+  }
+
+  .espi-table tr:nth-child(even) {
+    @apply bg-alternaterow;
+  }
+
+  .espi-table tr:hover {
+    @apply bg-blue-100;
+  }
+
+  .espi-card {
+    @apply bg-white rounded-md shadow-md p-4 border border-gray-200;
+  }
+
+  .espi-progress-good {
+    @apply text-espigreen font-bold text-xl;
+  }
+
+  .espi-progress-warning {
+    @apply text-espiwarning font-bold text-xl;
+  }
+
+  .espi-progress-danger {
+    @apply text-espired font-bold text-xl;
+  }
+
+  .espi-login-container {
+    @apply flex min-h-screen;
+  }
+
+  .espi-login-image {
+    @apply hidden md:block md:w-2/3 bg-cover bg-center;
+  }
+
+  .espi-login-form {
+    @apply w-full md:w-1/3 flex flex-col justify-center px-8 py-12;
+  }
+
+  .rating-1 { @apply bg-red-500; }
+  .rating-2 { @apply bg-orange-500; }
+  .rating-3 { @apply bg-yellow-400; }
+  .rating-4 { @apply bg-green-400; }
+  .rating-5 { @apply bg-green-600; }
 }
