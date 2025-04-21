@@ -12,6 +12,10 @@ Clément PELET                             -        UI/UX Designer
 
 **URL**: https://github.com/Faris2045/training-ai-coach
 
+Coordinator Login: 
+Email : coordinator@espi.fr
+Mot de passe : coordinatorpwd
+
 ## How can I edit this code?
 
 There are several ways of editing your application.
