@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
@@ -819,7 +820,7 @@ const ApprenantProfile = () => {
                       </div>
                       <span>{semaine.portEPI}/5</span>
                     </div>
-                  </div>
+                  </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                     <div className="flex items-center">
                       <div className="w-16 bg-gray-200 rounded-full h-2.5 mr-2">
