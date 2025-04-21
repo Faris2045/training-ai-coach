@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
@@ -933,25 +932,25 @@ const ApprenantProfile = () => {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
-                  {evaluationsTheoriques.map((eval, index) => (
+                  {evaluationsTheoriques.map((evaluation, index) => (
                     <tr key={index}>
-                      <td className="px-4 py-3 text-sm">{eval.nom}</td>
+                      <td className="px-4 py-3 text-sm">{evaluation.nom}</td>
                       <td className="px-4 py-3 text-sm">
                         <div className="flex items-center">
                           <div className="w-16 bg-gray-200 rounded-full h-2.5 mr-2">
                             <div 
                               className={`h-2.5 rounded-full ${
-                                eval.note >= 80 ? 'bg-green-500' : 
-                                eval.note >= 60 ? 'bg-yellow-500' : 
+                                evaluation.note >= 80 ? 'bg-green-500' : 
+                                evaluation.note >= 60 ? 'bg-yellow-500' : 
                                 'bg-red-500'
                               }`}
-                              style={{ width: `${eval.note}%` }}
+                              style={{ width: `${evaluation.note}%` }}
                             ></div>
                           </div>
-                          <span>{eval.note}/100</span>
+                          <span>{evaluation.note}/100</span>
                         </div>
                       </td>
-                      <td className="px-4 py-3 text-sm">{eval.heures}h</td>
+                      <td className="px-4 py-3 text-sm">{evaluation.heures}h</td>
                     </tr>
                   ))}
                 </tbody>
@@ -965,12 +964,12 @@ const ApprenantProfile = () => {
                   <div 
                     className="bg-blue-500 h-4 rounded-full"
                     style={{ 
-                      width: `${evaluationsTheoriques.reduce((sum, eval) => sum + eval.note, 0) / evaluationsTheoriques.length}%` 
+                      width: `${evaluationsTheoriques.reduce((sum, evaluation) => sum + evaluation.note, 0) / evaluationsTheoriques.length}%` 
                     }}
                   ></div>
                 </div>
                 <span className="font-bold">
-                  {(evaluationsTheoriques.reduce((sum, eval) => sum + eval.note, 0) / evaluationsTheoriques.length).toFixed(1)}/100
+                  {(evaluationsTheoriques.reduce((sum, evaluation) => sum + evaluation.note, 0) / evaluationsTheoriques.length).toFixed(1)}/100
                 </span>
               </div>
             </div>
@@ -986,7 +985,7 @@ const ApprenantProfile = () => {
                 style={{ 
                   width: `${(
                     travauxPratiques.reduce((sum, tp) => sum + tp.note, 0) / travauxPratiques.length * 0.6 +
-                    evaluationsTheoriques.reduce((sum, eval) => sum + eval.note, 0) / evaluationsTheoriques.length * 0.4
+                    evaluationsTheoriques.reduce((sum, evaluation) => sum + evaluation.note, 0) / evaluationsTheoriques.length * 0.4
                   )}%` 
                 }}
               ></div>
@@ -994,7 +993,7 @@ const ApprenantProfile = () => {
             <span className="font-bold text-xl">
               {(
                 travauxPratiques.reduce((sum, tp) => sum + tp.note, 0) / travauxPratiques.length * 0.6 +
-                evaluationsTheoriques.reduce((sum, eval) => sum + eval.note, 0) / evaluationsTheoriques.length * 0.4
+                evaluationsTheoriques.reduce((sum, evaluation) => sum + evaluation.note, 0) / evaluationsTheoriques.length * 0.4
               ).toFixed(1)}/100
             </span>
           </div>
@@ -1049,7 +1048,7 @@ const ApprenantProfile = () => {
             <h3 className="text-lg font-medium mb-3">Heures de travail :</h3>
             <div className="text-3xl font-bold text-espiblue mb-2">
               {travauxPratiques.reduce((sum, tp) => sum + tp.heures, 0) + 
-               evaluationsTheoriques.reduce((sum, eval) => sum + eval.heures, 0)}h
+               evaluationsTheoriques.reduce((sum, evaluation) => sum + evaluation.heures, 0)}h
                <span className="text-sm font-normal text-gray-500 ml-2">/ {parcours.heuresTotales}h</span>
             </div>
             <div className="w-full bg-gray-200 h-2 rounded-full">
@@ -1057,7 +1056,7 @@ const ApprenantProfile = () => {
                 className="bg-espiblue h-2 rounded-full"
                 style={{ 
                   width: `${(travauxPratiques.reduce((sum, tp) => sum + tp.heures, 0) + 
-                          evaluationsTheoriques.reduce((sum, eval) => sum + eval.heures, 0)) / 
+                          evaluationsTheoriques.reduce((sum, evaluation) => sum + evaluation.heures, 0)) / 
                           parcours.heuresTotales * 100}%` 
                 }}
               ></div>
@@ -1069,19 +1068,19 @@ const ApprenantProfile = () => {
             <div className="text-3xl font-bold text-espigreen mb-2">
               {(
                 travauxPratiques.reduce((sum, tp) => sum + tp.note, 0) / travauxPratiques.length * 0.6 +
-                evaluationsTheoriques.reduce((sum, eval) => sum + eval.note, 0) / evaluationsTheoriques.length * 0.4
+                evaluationsTheoriques.reduce((sum, evaluation) => sum + evaluation.note, 0) / evaluationsTheoriques.length * 0.4
               ).toFixed(1)}
               <span className="text-sm font-normal text-gray-500 ml-1">/ 100</span>
             </div>
             <div className="flex items-center text-sm">
               <span className={`inline-block w-3 h-3 rounded-full mr-1 ${
                 (travauxPratiques.reduce((sum, tp) => sum + tp.note, 0) / travauxPratiques.length * 0.6 +
-                evaluationsTheoriques.reduce((sum, eval) => sum + eval.note, 0) / evaluationsTheoriques.length * 0.4) >= 80 
+                evaluationsTheoriques.reduce((sum, evaluation) => sum + evaluation.note, 0) / evaluationsTheoriques.length * 0.4) >= 80 
                 ? 'bg-green-500' : 'bg-yellow-500'
               }`}></span>
               <span>
                 {(travauxPratiques.reduce((sum, tp) => sum + tp.note, 0) / travauxPratiques.length * 0.6 +
-                evaluationsTheoriques.reduce((sum, eval) => sum + eval.note, 0) / evaluationsTheoriques.length * 0.4) >= 80 
+                evaluationsTheoriques.reduce((sum, evaluation) => sum + evaluation.note, 0) / evaluationsTheoriques.length * 0.4) >= 80 
                 ? 'Très bon niveau' : 'En progression'}
               </span>
             </div>
