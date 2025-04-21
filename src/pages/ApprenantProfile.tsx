@@ -819,7 +819,7 @@ const ApprenantProfile = () => {
                       </div>
                       <span>{semaine.portEPI}/5</span>
                     </div>
-                  </td>
+                  </div>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                     <div className="flex items-center">
                       <div className="w-16 bg-gray-200 rounded-full h-2.5 mr-2">
@@ -1114,7 +1114,7 @@ const ApprenantProfile = () => {
               </li>
               <li className="flex items-center">
                 <CheckCircle className="text-green-500 mr-2" size={18} />
-                <span>Excellente précision dans les calculs (notes > 85%)</span>
+                <span>Excellente précision dans les calculs (notes &gt; 85%)</span>
               </li>
               <li className="flex items-center">
                 <CheckCircle className="text-green-500 mr-2" size={18} />
@@ -1128,7 +1128,7 @@ const ApprenantProfile = () => {
           </div>
           
           <div className="bg-gray-50 p-4 rounded-lg">
-            <h3 className="text-lg font-medium mb-3">Points �� améliorer :</h3>
+            <h3 className="text-lg font-medium mb-3">Points à améliorer :</h3>
             <ul className="space-y-2">
               <li className="flex items-start">
                 <div className="text-yellow-500 mr-2 mt-1">⚠️</div>
